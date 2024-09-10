@@ -1,0 +1,328 @@
+[gd_scene load_steps=36 format=3 uid="uid://c56wkcxjgyxfy"]
+
+[ext_resource type="Texture2D" uid="uid://csbiebc6aikkq" path="res://bwpixels.jpeg" id="1_8mscr"]
+[ext_resource type="Script" path="res://Actors/ball.gd" id="1_ht2i2"]
+[ext_resource type="PackedScene" uid="uid://12glecyu0lm7" path="res://Actors/brick.tscn" id="1_lq4wr"]
+[ext_resource type="Script" path="res://audio_stream_player_2d.gd" id="2_50hwq"]
+[ext_resource type="Script" path="res://Actors/paddle.gd" id="2_eqluo"]
+[ext_resource type="Texture2D" uid="uid://cv1nodv6pi48c" path="res://EvilBall/animation breakout-01.png" id="3_8ucn4"]
+[ext_resource type="Script" path="res://Actors/evil_ball.gd" id="3_p2flv"]
+[ext_resource type="Texture2D" uid="uid://bvif6h482mosu" path="res://EvilBall/animation breakout-02.png" id="4_nydx6"]
+[ext_resource type="Texture2D" uid="uid://blfh5monqkc6v" path="res://EvilBall/animation breakout-03.png" id="5_uo6f1"]
+[ext_resource type="Texture2D" uid="uid://cpkpjoso7mv0o" path="res://EvilBall/animation breakout-04.png" id="6_g0lpq"]
+[ext_resource type="Texture2D" uid="uid://cu54db5cur84m" path="res://EvilBall/animation breakout-05.png" id="7_doe5j"]
+[ext_resource type="Texture2D" uid="uid://bmi4bl68saueq" path="res://EvilBall/animation breakout-06.png" id="8_fihke"]
+[ext_resource type="Texture2D" uid="uid://clb6mkv1hjear" path="res://EvilBall/animation breakout-07.png" id="9_5f2tu"]
+[ext_resource type="Texture2D" uid="uid://otom0113dg02" path="res://EvilBall/animation breakout-08.png" id="10_wkare"]
+[ext_resource type="Texture2D" uid="uid://20e7j6mj4cqn" path="res://EvilBall/animation breakout-09.png" id="11_c4as0"]
+[ext_resource type="Texture2D" uid="uid://5snpqe057g7s" path="res://EvilBall/animation breakout-10.png" id="12_yrwru"]
+[ext_resource type="Texture2D" uid="uid://cehxc2ko73hx1" path="res://EvilBall/animation breakout-11.png" id="13_2kcn8"]
+[ext_resource type="Texture2D" uid="uid://bgo71i7y12a0f" path="res://EvilBall/animation breakout-12.png" id="14_n7d58"]
+[ext_resource type="Texture2D" uid="uid://d2cstp1kgl8b7" path="res://EvilBall/animation breakout-13.png" id="15_ni1qe"]
+[ext_resource type="Texture2D" uid="uid://bwfojfkysjp85" path="res://EvilBall/animation breakout-14.png" id="16_qlbbt"]
+[ext_resource type="Texture2D" uid="uid://d340lbavgc6va" path="res://EvilBall/animation breakout-15.png" id="17_lgojg"]
+[ext_resource type="PackedScene" uid="uid://d1qaw01eei7on" path="res://Actors/health_counter.tscn" id="20_rpwkd"]
+[ext_resource type="FontFile" uid="uid://bg8qolkm2ecsh" path="res://Minecraftia-Regular.ttf" id="20_rqh4o"]
+[ext_resource type="AudioStream" uid="uid://0qpi3coubmoh" path="res://static.wav" id="23_ngfte"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0ypk7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yu31p"]
+size = Vector2(19, 20)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_plgco"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cfn5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8ucn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nydx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uo6f1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g0lpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_doe5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fihke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5f2tu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wkare")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c4as0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yrwru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2kcn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_n7d58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ni1qe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qlbbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_lgojg")
+}],
+"loop": true,
+"name": &"glitch",
+"speed": 10.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_3jlw2"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6pc4"]
+size = Vector2(289, 280)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p7ho7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpw8y"]
+size = Vector2(120, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxj7f"]
+size = Vector2(2200, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yylq"]
+size = Vector2(1184, 55.9995)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpeq3"]
+size = Vector2(2000, 32)
+
+[node name="Main" type="Node2D" groups=["Brick", "Paddle"]]
+position = Vector2(549, 309)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("23_ngfte")
+autoplay = true
+area_mask = 3
+script = ExtResource("2_50hwq")
+
+[node name="Bwpixels" type="Sprite2D" parent="."]
+position = Vector2(411.057, 269.25)
+scale = Vector2(0.392382, 0.392382)
+texture = ExtResource("1_8mscr")
+
+[node name="Ball" type="CharacterBody2D" parent="." node_paths=PackedStringArray("health_text", "start_text") groups=["Audio"]]
+visible = false
+scale = Vector2(1.5, 1.5)
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_ht2i2")
+health_text = NodePath("../Health")
+start_text = NodePath("../StartText")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+modulate = Color(0.498039, 0.588235, 1, 1)
+position = Vector2(4.89882, -5.0568)
+scale = Vector2(-18.7406, 19.9504)
+texture = SubResource("CanvasTexture_0ypk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(5, -5)
+shape = SubResource("RectangleShape2D_yu31p")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Ball"]
+amount = 13
+lifetime = 0.4
+randomness = 0.5
+lifetime_randomness = 0.65
+texture = SubResource("CanvasTexture_plgco")
+emission_shape = 3
+emission_rect_extents = Vector2(4, 6)
+gravity = Vector2(0, 0)
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+color = Color(0.498039, 0.588235, 1, 1)
+
+[node name="EvilBall" type="CharacterBody2D" parent="." groups=["Audio", "Evil"]]
+position = Vector2(259, 83)
+motion_mode = 1
+script = ExtResource("3_p2flv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EvilBall"]
+position = Vector2(160, 104)
+scale = Vector2(0.615833, 0.615833)
+sprite_frames = SubResource("SpriteFrames_cfn5c")
+animation = &"glitch"
+frame_progress = 0.256633
+script = SubResource("GDScript_3jlw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvilBall"]
+position = Vector2(157.875, 117.875)
+shape = SubResource("RectangleShape2D_t6pc4")
+
+[node name="Brick2" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(-389, 419)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick3" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(-445, 235)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick4" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(155, 355)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick5" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(315, -253)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick6" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(1163, -189)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick11" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(11, -37)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick12" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(931, 163)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick7" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(659, 35)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick10" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(1059, -21)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick9" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(-85, 67)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick8" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(827, -109)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick13" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(-389, -61)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick14" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(659, 283)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick15" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(435, -205)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Brick16" parent="." instance=ExtResource("1_lq4wr")]
+position = Vector2(1267, 179)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Paddle" type="CharacterBody2D" parent="." groups=["Paddle"]]
+position = Vector2(563, 667)
+motion_mode = 1
+script = ExtResource("2_eqluo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paddle"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 24)
+scale = Vector2(104, 24)
+texture = SubResource("CanvasTexture_p7ho7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Paddle"]
+position = Vector2(52, 36)
+shape = SubResource("RectangleShape2D_fpw8y")
+
+[node name="GameOver" type="StaticBody2D" parent="." groups=["GameOver"]]
+position = Vector2(67, -205)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameOver"]
+position = Vector2(344, 1136)
+shape = SubResource("RectangleShape2D_qxj7f")
+
+[node name="HealthCounter" parent="." instance=ExtResource("20_rpwkd")]
+position = Vector2(-401, -265)
+
+[node name="HealthCounter2" parent="." instance=ExtResource("20_rpwkd")]
+position = Vector2(-354, -265)
+
+[node name="HealthCounter3" parent="." instance=ExtResource("20_rpwkd")]
+position = Vector2(-305, -265)
+
+[node name="HealthCounter4" parent="." instance=ExtResource("20_rpwkd")]
+position = Vector2(-258, -265)
+
+[node name="HealthCounter5" parent="." instance=ExtResource("20_rpwkd")]
+position = Vector2(-210, -265)
+
+[node name="Health" type="RichTextLabel" parent="."]
+offset_left = -501.0
+offset_top = -261.0
+offset_right = -421.0
+offset_bottom = -221.0
+theme_override_fonts/normal_font = ExtResource("20_rqh4o")
+text = "HEALTH: "
+
+[node name="StartText" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 355.0
+offset_top = 643.0
+offset_right = 523.0
+offset_bottom = 675.0
+theme_override_fonts/normal_font = ExtResource("20_rqh4o")
+text = "[CLICK TO START]"
+
+[node name="Border" type="StaticBody2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="RightBorder" type="CollisionShape2D" parent="Border"]
+position = Vector2(1393, 267)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_5yylq")
+
+[node name="TopBorder" type="CollisionShape2D" parent="Border"]
+position = Vector2(417, -325)
+shape = SubResource("RectangleShape2D_xpeq3")
+
+[node name="LeftBorder" type="CollisionShape2D" parent="Border"]
+position = Vector2(-561, 267)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_5yylq")

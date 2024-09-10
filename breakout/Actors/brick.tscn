@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://12glecyu0lm7"]
+
+[ext_resource type="Texture2D" uid="uid://bxs6xu13qjvir" path="res://blue_pixel_2.png" id="1_mh1qw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vjuty"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fna2c"]
+size = Vector2(56, 56)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abfci"]
+
+[node name="Brick2" type="CharacterBody2D" groups=["Brick"]]
+modulate = Color(0.478431, 0.905882, 0.780392, 1)
+motion_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.168627, 0.85098, 0.996078, 1)
+position = Vector2(56.0543, 71.4122)
+scale = Vector2(-55.6706, -54.8246)
+texture = SubResource("CanvasTexture_vjuty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28, 44)
+shape = SubResource("RectangleShape2D_fna2c")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(0, 16)
+process_material = SubResource("ShaderMaterial_abfci")
+texture = ExtResource("1_mh1qw")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1qaw01eei7on"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fxm2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v56qy"]
+size = Vector2(32, 32)
+
+[node name="HealthCounter" type="CharacterBody2D" groups=["Health"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.737255, 0.929412, 0.0352941, 1)
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_fxm2r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_v56qy")
