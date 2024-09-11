@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://btfwv8xb50hkd"]
 
-[ext_resource type="Script" path="res://Actors/Projectile/projectile.gd" id="1_pphsj"]
+[ext_resource type="Script" path="res://Actors/Projectile/projectile.gd" id="1_0fcxp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_37vfd"]
 
@@ -11,7 +11,7 @@ radius = 7.07107
 
 [node name="Projectile" type="Area2D"]
 position = Vector2(2, 1)
-script = ExtResource("1_pphsj")
+script = ExtResource("1_0fcxp")
 
 [node name="MainSprite" type="Sprite2D" parent="."]
 scale = Vector2(15, 15)
