@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt11nto74c8th"]
+
+[ext_resource type="Texture2D" uid="uid://csh1g37ntlr85" path="res://actors/player/noirIdle/pinot_noir_idle1.png" id="1_twdug"]
+[ext_resource type="Texture2D" uid="uid://bj1yuksojt2hf" path="res://actors/player/noirIdle/pinot_noir_idle2.png" id="2_ixkox"]
+[ext_resource type="Texture2D" uid="uid://chwvcd0tn27a8" path="res://actors/player/noirIdle/pinot_noir_idle3.png" id="3_vjjkm"]
+[ext_resource type="Texture2D" uid="uid://duuidyl8hb5vq" path="res://actors/player/noirIdle/pinot_noir_idle4.png" id="4_e2kyc"]
+[ext_resource type="Texture2D" uid="uid://cgfn3bm3hdeji" path="res://actors/player/noirIdle/pinot_noir_idle5.png" id="5_lwwx4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i4hf4"]
+radius = 32.0
+height = 122.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iu27q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_twdug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ixkox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vjjkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e2kyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lwwx4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NoirIdle" type="CharacterBody2D"]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(373, 334)
+shape = SubResource("CapsuleShape2D_i4hf4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(365, 331)
+sprite_frames = SubResource("SpriteFrames_iu27q")

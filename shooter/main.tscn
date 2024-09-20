@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7md5rhdgcwdy"]
+[gd_scene load_steps=3 format=3 uid="uid://b7md5rhdgcwdy"]
 
 [ext_resource type="PackedScene" uid="uid://ql8v40jditw8" path="res://actors/player/player.tscn" id="1_a6ies"]
+[ext_resource type="PackedScene" uid="uid://bt11nto74c8th" path="res://actors/player/noirIdle/noir_idle.tscn" id="2_k17nx"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=["pinotNoir"]]
 
 [node name="Player" parent="." instance=ExtResource("1_a6ies")]
+projectile_scene = null
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="NoirIdle" parent="." instance=ExtResource("2_k17nx")]
+position = Vector2(0, -2)
