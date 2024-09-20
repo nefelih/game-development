@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dds3rv7hjx664"]
+
+[ext_resource type="Script" path="res://actors/projectile/bomb.gd" id="1_l4upw"]
+[ext_resource type="Texture2D" uid="uid://bfc3q52nm6og2" path="res://actors/projectile/bomb/apple.png" id="1_rr1uu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kkagl"]
+radius = 11.0
+
+[node name="Bomb" type="CharacterBody2D"]
+script = ExtResource("1_l4upw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kkagl")
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_rr1uu")
+
+[node name="TimeToLive" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="TimeToLive" to="." method="_on_time_to_live_timeout"]

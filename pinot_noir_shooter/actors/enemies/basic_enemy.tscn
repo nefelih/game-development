@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://ngw6rh64x2c4"]
+
+[ext_resource type="Script" path="res://actors/enemies/basic_enemy.gd" id="1_iptu1"]
+[ext_resource type="Texture2D" uid="uid://ckun767muvou4" path="res://tile_set/sproutLands/Characters/Basic Charakter Spritesheet.png" id="2_8w8hb"]
+[ext_resource type="Script" path="res://actors/enemies/idle.gd" id="2_s0uvc"]
+[ext_resource type="Script" path="res://actors/enemies/chasing.gd" id="3_b42l7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptvxd"]
+atlas = ExtResource("2_8w8hb")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljioq"]
+atlas = ExtResource("2_8w8hb")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg5jg"]
+atlas = ExtResource("2_8w8hb")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vpgn"]
+atlas = ExtResource("2_8w8hb")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2g8sw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptvxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljioq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg5jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vpgn")
+}],
+"loop": true,
+"name": &"forward",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22o5r"]
+size = Vector2(15, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xqltg"]
+radius = 4.27499
+
+[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("initial_state")]
+position = Vector2(167, 70)
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_iptu1")
+initial_state = NodePath("States/Idle")
+
+[node name="MainSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2g8sw")
+animation = &"forward"
+frame_progress = 0.456637
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_22o5r")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource("2_s0uvc")
+
+[node name="Chasing" type="Node" parent="States"]
+script = ExtResource("3_b42l7")
+
+[node name="DetectionRange" type="Area2D" parent="."]
+scale = Vector2(15, 15)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+shape = SubResource("CircleShape2D_xqltg")

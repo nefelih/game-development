@@ -1,0 +1,12 @@
+res://main.tscn
+res://actors/player/player.tscn
+res://actors/projectile/projectile.tscn
+res://actors/enemies/basic_enemy.tscn
+res://actors/projectile/projectile.gd
+res://actors/player/player.gd
+res://actors/projectile/bomb.tscn
+res://actors/projectile/bomb.gd
+res://actors/projectile/projectile_shadow.gd
+res://actors/projectile/projectile_shadow.tscn
+res://actors/enemies/chasing.gd
+res://actors/enemies/idle.gd

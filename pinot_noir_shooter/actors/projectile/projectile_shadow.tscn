@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8iukuekoopmj"]
+
+[ext_resource type="Texture2D" uid="uid://duldiy3f1d57c" path="res://actors/projectile/bomb/rainbow_ball.png" id="1_puohm"]
+[ext_resource type="Script" path="res://actors/projectile/projectile_shadow.gd" id="2_s4r3p"]
+
+[node name="projectileShadow" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.192157)
+texture = ExtResource("1_puohm")
+script = ExtResource("2_s4r3p")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"slice_section": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.35
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
