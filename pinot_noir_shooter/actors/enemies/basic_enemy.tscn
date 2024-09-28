@@ -1,9 +1,39 @@
-[gd_scene load_steps=12 format=3 uid="uid://ngw6rh64x2c4"]
+[gd_scene load_steps=22 format=3 uid="uid://ngw6rh64x2c4"]
 
 [ext_resource type="Script" path="res://actors/enemies/basic_enemy.gd" id="1_iptu1"]
 [ext_resource type="Texture2D" uid="uid://ckun767muvou4" path="res://tile_set/sproutLands/Characters/Basic Charakter Spritesheet.png" id="2_8w8hb"]
 [ext_resource type="Script" path="res://actors/enemies/idle.gd" id="2_s0uvc"]
+[ext_resource type="Texture2D" uid="uid://cuntyb6bwol58" path="res://actors/enemies/exploding.png" id="2_ug8i6"]
 [ext_resource type="Script" path="res://actors/enemies/chasing.gd" id="3_b42l7"]
+[ext_resource type="Script" path="res://actors/enemies/exploding.gd" id="6_5tn4x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pwo5"]
+atlas = ExtResource("2_ug8i6")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmwrr"]
+atlas = ExtResource("2_ug8i6")
+region = Rect2(70, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w8t3"]
+atlas = ExtResource("2_ug8i6")
+region = Rect2(140, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8rwu"]
+atlas = ExtResource("2_ug8i6")
+region = Rect2(210, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g4r2"]
+atlas = ExtResource("2_ug8i6")
+region = Rect2(280, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clbgb"]
+atlas = ExtResource("2_ug8i6")
+region = Rect2(350, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vvli"]
+atlas = ExtResource("2_ug8i6")
+region = Rect2(420, 0, 70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptvxd"]
 atlas = ExtResource("2_8w8hb")
@@ -25,6 +55,32 @@ region = Rect2(144, 0, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2pwo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmwrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w8t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8rwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g4r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clbgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vvli")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ptvxd")
 }, {
 "duration": 1.0,
@@ -44,11 +100,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22o5r"]
 size = Vector2(15, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gagkc"]
+size = Vector2(24, 24)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqltg"]
 radius = 4.27499
 
 [node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("initial_state")]
-position = Vector2(167, 70)
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_iptu1")
@@ -57,7 +115,7 @@ initial_state = NodePath("States/Idle")
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2g8sw")
 animation = &"forward"
-frame_progress = 0.456637
+autoplay = "forward"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_22o5r")
@@ -70,9 +128,19 @@ script = ExtResource("2_s0uvc")
 [node name="Chasing" type="Node" parent="States"]
 script = ExtResource("3_b42l7")
 
+[node name="Exploding" type="Node" parent="States"]
+script = ExtResource("6_5tn4x")
+
+[node name="ExplodingRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplodingRange"]
+shape = SubResource("RectangleShape2D_gagkc")
+
 [node name="DetectionRange" type="Area2D" parent="."]
 scale = Vector2(15, 15)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
 shape = SubResource("CircleShape2D_xqltg")
+
+[connection signal="animation_finished" from="MainSprite" to="States/Exploding" method="_on_main_sprite_animation_finished"]

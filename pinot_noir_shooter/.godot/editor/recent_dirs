@@ -1,5 +1,7 @@
+res://actors/player/noirIdle
+res://actors/player/noirWalking
+res://actors/enemies
+res://tile_set/sproutLands/Characters
 res://
 res://actors/projectile
 res://actors/player/colt
-res://tile_set/sproutLands/Characters
-res://actors/enemies

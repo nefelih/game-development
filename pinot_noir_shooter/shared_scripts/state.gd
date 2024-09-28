@@ -4,7 +4,7 @@ class_name State
 
 signal change_state(new_state)
 
-var main_sprite: Sprite2D
+var main_sprite: AnimatedSprite2D
 var body: CharacterStateMachine
 
 func initialize():

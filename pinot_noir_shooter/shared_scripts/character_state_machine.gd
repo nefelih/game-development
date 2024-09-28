@@ -28,17 +28,15 @@ func initialize():
 	
 func _physics_process(delta: float) -> void:
 	
-	
-	idle_sprite.play("forward")
-	#if (current_state == not chasing_state):
-		#idle_sprite.play("forward")
+
 	current_state.process_state(delta)
+	#print(current_state)
 	
 	
 func on_change_state(next_state: State):
 	current_state.on_exit_state()
 	current_state = next_state
 	current_state.on_enter_state()
-	
+		
 	
 	

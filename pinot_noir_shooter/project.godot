@@ -21,8 +21,8 @@ aseprite_executable_path="c:/Program Files/Aseprite/Aseprite.exe"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_width=320
+window/size/viewport_height=180
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="res://cursor.png"
