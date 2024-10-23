@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://doq251oif1gk7"]
+
+[ext_resource type="Script" path="res://levels/game_over.gd" id="1_jyspu"]
+[ext_resource type="Texture2D" uid="uid://ceovo41gtf5bi" path="res://levels/game_over/pinot_game_over.png" id="2_5oelk"]
+[ext_resource type="AudioStream" uid="uid://bq3d5aewc6s1x" path="res://music/270403__littlerobotsoundfactory__jingle_lose_00.wav" id="2_p745w"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_jyspu")
+bg_music = ExtResource("2_p745w")
+
+[node name="GameOver" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("2_5oelk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

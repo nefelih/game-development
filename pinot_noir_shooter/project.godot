@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 aseprite_executable_path="c:/Program Files/Aseprite/Aseprite.exe"
 
+[autoload]
+
+GlobalAudioManager="*res://shared_scripts/global_audio_manager.tscn"
+HealthManager="*res://shared_scripts/health_manager.gd"
+
 [display]
 
 window/size/viewport_width=320
@@ -30,6 +35,11 @@ mouse_cursor/custom_image="res://cursor.png"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg")
+
+[global_group]
+
+player=""
+enemy=""
 
 [input]
 
@@ -61,6 +71,11 @@ move_down={
 bomb={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+start_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(91, 28),"global_position":Vector2(100, 74),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 

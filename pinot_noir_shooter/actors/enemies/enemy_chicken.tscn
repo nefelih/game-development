@@ -1,10 +1,37 @@
-[gd_scene load_steps=15 format=3 uid="uid://ry0p07h5ondc"]
+[gd_scene load_steps=25 format=3 uid="uid://ry0p07h5ondc"]
 
 [ext_resource type="Texture2D" uid="uid://b0bfui7qkxati" path="res://tile_set/sproutLands/Characters/Free Chicken Sprites.png" id="1_2sm7j"]
 [ext_resource type="Script" path="res://actors/enemies/enemy_chicken.gd" id="1_3llk4"]
 [ext_resource type="Script" path="res://actors/enemies/idle.gd" id="2_5kwf7"]
+[ext_resource type="Texture2D" uid="uid://5bre2lwmjp1l" path="res://actors/enemies/explodingchickens.png" id="2_7qemm"]
 [ext_resource type="Script" path="res://actors/enemies/chasing.gd" id="3_0vlp8"]
 [ext_resource type="Script" path="res://actors/enemies/charge.gd" id="5_1kx7h"]
+[ext_resource type="Script" path="res://actors/enemies/exploding.gd" id="6_qj3aa"]
+[ext_resource type="AudioStream" uid="uid://dpm2aak8s5i8q" path="res://music/retro-explode-1-236678.mp3" id="8_bexxj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0hha"]
+atlas = ExtResource("2_7qemm")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocjq2"]
+atlas = ExtResource("2_7qemm")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihiir"]
+atlas = ExtResource("2_7qemm")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lcej"]
+atlas = ExtResource("2_7qemm")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5e7a"]
+atlas = ExtResource("2_7qemm")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy5iv"]
+atlas = ExtResource("2_7qemm")
+region = Rect2(250, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnopu"]
 atlas = ExtResource("1_2sm7j")
@@ -34,6 +61,29 @@ region = Rect2(48, 16, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_w0hha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocjq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihiir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lcej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5e7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy5iv")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qnopu")
 }, {
 "duration": 1.0,
@@ -61,11 +111,14 @@ radius = 6.0
 height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8lai"]
-size = Vector2(1079, 680)
+size = Vector2(1170.88, 751.938)
 
-[node name="EnemyChicken" type="CharacterBody2D" node_paths=PackedStringArray("initial_state")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nufbm"]
+
+[node name="EnemyChicken" type="CharacterBody2D" node_paths=PackedStringArray("initial_state") groups=["enemy"]]
 position = Vector2(104, 166)
 collision_layer = 2
+collision_mask = 19
 motion_mode = 1
 script = ExtResource("1_3llk4")
 initial_state = NodePath("States/Charge")
@@ -74,7 +127,6 @@ initial_state = NodePath("States/Charge")
 sprite_frames = SubResource("SpriteFrames_634aa")
 animation = &"forward"
 autoplay = "forward"
-frame_progress = 0.201866
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
@@ -91,15 +143,27 @@ script = ExtResource("3_0vlp8")
 [node name="Charge" type="Node" parent="States"]
 script = ExtResource("5_1kx7h")
 
-[node name="DetectionRange" type="Area2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
-position = Vector2(2, 4)
-shape = SubResource("RectangleShape2D_s8lai")
+[node name="Exploding" type="Node" parent="States"]
+script = ExtResource("6_qj3aa")
+explode_sfx = ExtResource("8_bexxj")
 
 [node name="TimeToLive" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 120.0
 autostart = true
 
+[node name="DetectionRange" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_s8lai")
+
+[node name="ExplodingRange" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplodingRange"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_nufbm")
+
+[connection signal="animation_finished" from="MainSprite" to="States/Exploding" method="_on_main_sprite_animation_finished"]
 [connection signal="timeout" from="TimeToLive" to="." method="_on_time_to_live_timeout"]

@@ -1,13 +1,9 @@
-extends CharacterStateMachine
-
-class_name Chicken
+extends Enemy
 
 #@export var target : CharacterBody2D
 #@export var speed = 3000
 #var target_position
 #var player_position
-
-@export var hp: int = 3
 
 
 func _on_time_to_live_timeout() -> void:

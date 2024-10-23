@@ -11,7 +11,7 @@ func initialize():
 func process_state(delta: float):
 	#print("idle state running")	
 	var idle_mob = body.get_child(0)
-	idle_mob.play("idle")
+	#idle_mob.play("idle")
 	var potential_targets = detect_range.get_overlapping_bodies()
 	if (not potential_targets.is_empty()):
 		chasing_state.target = (potential_targets[0] as CharacterBody2D)

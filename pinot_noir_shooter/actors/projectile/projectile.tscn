@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpjjhmw4gdy70"]
 
 [ext_resource type="Script" path="res://actors/projectile/projectile.gd" id="1_6loc4"]
-[ext_resource type="Texture2D" uid="uid://bf5c18mxmpvuj" path="res://actors/projectile/bomb/rainbowball.png" id="2_vghnq"]
+[ext_resource type="Texture2D" uid="uid://b6e1jc3oq5y1w" path="res://actors/projectile/bomb/rainbowSprite.png" id="2_od3nu"]
 
 [sub_resource type="Curve" id="Curve_yvp6n"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
@@ -41,7 +41,7 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_o1go6")
 
 [node name="MainSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_vghnq")
+texture = ExtResource("2_od3nu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qbs76")

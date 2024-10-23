@@ -1,7 +1,11 @@
-res://actors/player/noirIdle
-res://actors/player/noirWalking
-res://actors/enemies
-res://tile_set/sproutLands/Characters
+res://levels
 res://
+res://actors/player/noirIdle
+res://levels/start_page
+res://actors/enemies
+res://shared_scripts
+res://actors/projectile/bomb
+res://actors/player/noirWalking
+res://tile_set/sproutLands/Characters
 res://actors/projectile
 res://actors/player/colt

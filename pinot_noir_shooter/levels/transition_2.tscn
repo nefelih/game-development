@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://whre1j1tijk1"]
+
+[ext_resource type="Script" path="res://levels/transition_2.gd" id="1_65620"]
+[ext_resource type="Texture2D" uid="uid://d36t287r3r7v1" path="res://levels/transitions/transition2.png" id="1_k54hn"]
+[ext_resource type="AudioStream" uid="uid://dcova65404jrb" path="res://music/fast-2021-07-23_-_Sleek_Panther_-_www.FesliyanStudios.com.mp3" id="2_0gqud"]
+
+[node name="Transition2" type="Node2D"]
+script = ExtResource("1_65620")
+bg_music = ExtResource("2_0gqud")
+
+[node name="Transition2" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_k54hn")
+
+[node name="Wait" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Wait" to="." method="_on_wait_timeout"]

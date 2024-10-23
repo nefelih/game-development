@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://cli35lkcutkpe"]
+
+[ext_resource type="Texture2D" uid="uid://b7ivq6q4e8mc8" path="res://levels/start_page/noir_start_page.png" id="1_34l6d"]
+[ext_resource type="Script" path="res://levels/start_page.gd" id="1_57a10"]
+[ext_resource type="AudioStream" uid="uid://dcova65404jrb" path="res://music/fast-2021-07-23_-_Sleek_Panther_-_www.FesliyanStudios.com.mp3" id="2_kaae4"]
+[ext_resource type="Texture2D" uid="uid://dwkb2bxegg8u4" path="res://levels/start_page/start_button-sheet.png" id="3_ckaua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6lvq"]
+atlas = ExtResource("3_ckaua")
+region = Rect2(0, 0, 80, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fbmv"]
+atlas = ExtResource("3_ckaua")
+region = Rect2(80, 0, 80, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew6wv"]
+atlas = ExtResource("3_ckaua")
+region = Rect2(160, 0, 80, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu347"]
+atlas = ExtResource("3_ckaua")
+region = Rect2(240, 0, 80, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plhdc"]
+atlas = ExtResource("3_ckaua")
+region = Rect2(320, 0, 80, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8w3t"]
+atlas = ExtResource("3_ckaua")
+region = Rect2(400, 0, 80, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sprui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6lvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fbmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew6wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu347")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plhdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8w3t")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[node name="StartPage" type="Node2D"]
+position = Vector2(-3, 0)
+script = ExtResource("1_57a10")
+bg_music = ExtResource("2_kaae4")
+
+[node name="NoirStartPage" type="Sprite2D" parent="."]
+position = Vector2(163, 90)
+texture = ExtResource("1_34l6d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(101, 124)
+sprite_frames = SubResource("SpriteFrames_sprui")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.800469

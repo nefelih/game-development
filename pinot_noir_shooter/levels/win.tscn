@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4rk87gxtg8u2"]
+
+[ext_resource type="Texture2D" uid="uid://beontdyfgvvte" path="res://levels/win/pinot_win.png" id="1_1yvwh"]
+[ext_resource type="Script" path="res://levels/win.gd" id="1_xgpso"]
+[ext_resource type="AudioStream" uid="uid://b5qkdv78e2441" path="res://music/the-best-detective-190125-[AudioTrimmer.com].mp3" id="2_dck30"]
+
+[node name="Win" type="Node2D"]
+script = ExtResource("1_xgpso")
+bg_music = ExtResource("2_dck30")
+
+[node name="PinotWin" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_1yvwh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

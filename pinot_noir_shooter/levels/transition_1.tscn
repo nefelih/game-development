@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8flhcss4iipr"]
+
+[ext_resource type="Script" path="res://levels/transition_1.gd" id="1_16h5h"]
+[ext_resource type="Texture2D" uid="uid://8y2ys33tf5o7" path="res://levels/transitions/transition1.png" id="1_e3c31"]
+
+[node name="Transition1" type="Node2D"]
+script = ExtResource("1_16h5h")
+
+[node name="Transition1" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_e3c31")
+
+[node name="Wait" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Wait" to="." method="_on_wait_timeout"]

@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-@export var projectile_scene: Resource
-@export var bomb_scene: Resource
+@export var bomb_scene : Resource
+@export var projectile_scene : Resource
+@export var gunshot_sfx : Resource
+@export var bomb_sfx : Resource
 @export var move_speed: float = 100.0
 
 #@onready var noir_idle = $SpriteIdle
@@ -11,7 +13,6 @@ extends CharacterBody2D
 
 @onready var noir_idle = get_node("Noir/SpriteIdle")
 @onready var noir_walking = get_node("Noir/SpriteWalking")
-@onready var colt = get_node("Noir/Colt")
 
 
 func _input(event):
@@ -21,18 +22,22 @@ func _input(event):
 			var new_projectile = projectile_scene.instantiate()
 			get_parent().add_child(new_projectile)
 			
+			GlobalAudioManager.play_SFX(gunshot_sfx, 0.4)
+			
 			var projectile_forward = position.direction_to(get_global_mouse_position())
-			new_projectile.fire(projectile_forward, 300.0)
+			new_projectile.fire(projectile_forward, 500.0)
 			new_projectile.position = $Colt/ProjectileRefPoint.global_position
 			
 	if (Input.is_action_just_pressed("bomb")):
 		if (event.is_pressed()):
-			var mouse_pos = get_viewport().get_mouse_position()
+			#var mouse_pos = get_viewport().get_mouse_position()
 			var new_bomb = bomb_scene.instantiate()
 			get_parent().add_child(new_bomb)
 			
+			GlobalAudioManager.play_SFX(bomb_sfx, 0.4)
+			
 			var projectile_forward = position.direction_to(get_global_mouse_position())
-			new_bomb.fire(projectile_forward, 500.0)
+			new_bomb.fire(projectile_forward, 50.0)
 			new_bomb.position = $Colt/BombRefPoint.global_position
 			
 			#new_bomb.top_level = true
@@ -57,8 +62,6 @@ func _physics_process(_delta):
 		noir_walking.flip_h = true
 		noir_walking.play("walking")
 
-
-		
 	if (Input.is_action_pressed("move_left")):
 		noir_idle.visible = false
 		#noir_idle.stop()

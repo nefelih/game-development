@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ngw6rh64x2c4"]
+[gd_scene load_steps=23 format=3 uid="uid://ngw6rh64x2c4"]
 
 [ext_resource type="Script" path="res://actors/enemies/basic_enemy.gd" id="1_iptu1"]
 [ext_resource type="Texture2D" uid="uid://ckun767muvou4" path="res://tile_set/sproutLands/Characters/Basic Charakter Spritesheet.png" id="2_8w8hb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cuntyb6bwol58" path="res://actors/enemies/exploding.png" id="2_ug8i6"]
 [ext_resource type="Script" path="res://actors/enemies/chasing.gd" id="3_b42l7"]
 [ext_resource type="Script" path="res://actors/enemies/exploding.gd" id="6_5tn4x"]
+[ext_resource type="AudioStream" uid="uid://dpm2aak8s5i8q" path="res://music/retro-explode-1-236678.mp3" id="7_hesup"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pwo5"]
 atlas = ExtResource("2_ug8i6")
@@ -104,10 +105,11 @@ size = Vector2(15, 15)
 size = Vector2(24, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqltg"]
-radius = 4.27499
+radius = 2.46667
 
-[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("initial_state")]
+[node name="BasicEnemy" type="CharacterBody2D" node_paths=PackedStringArray("initial_state") groups=["enemy"]]
 collision_layer = 2
+collision_mask = 19
 motion_mode = 1
 script = ExtResource("1_iptu1")
 initial_state = NodePath("States/Idle")
@@ -130,15 +132,17 @@ script = ExtResource("3_b42l7")
 
 [node name="Exploding" type="Node" parent="States"]
 script = ExtResource("6_5tn4x")
+explode_sfx = ExtResource("7_hesup")
 
 [node name="ExplodingRange" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplodingRange"]
 shape = SubResource("RectangleShape2D_gagkc")
 
 [node name="DetectionRange" type="Area2D" parent="."]
 scale = Vector2(15, 15)
-collision_layer = 2
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
 shape = SubResource("CircleShape2D_xqltg")

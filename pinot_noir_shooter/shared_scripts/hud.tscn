@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://fnkpmklqpked"]
+
+[ext_resource type="Script" path="res://shared_scripts/hud.gd" id="1_cuwgo"]
+[ext_resource type="Texture2D" uid="uid://2vvknwsesemv" path="res://shared_scripts/blue progress.png" id="2_bivjt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7pss"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_273jp"]
+bg_color = Color(0.324634, 0.95808, 0.824877, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_cuwgo")
+
+[node name="BlueProgress" type="Sprite2D" parent="."]
+position = Vector2(30, 169)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("2_bivjt")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = 5.0
+offset_top = 165.0
+offset_right = 55.0
+offset_bottom = 174.0
+theme_override_styles/background = SubResource("StyleBoxFlat_t7pss")
+theme_override_styles/fill = SubResource("StyleBoxFlat_273jp")
+max_value = 5.0
+step = 1.0
+show_percentage = false
