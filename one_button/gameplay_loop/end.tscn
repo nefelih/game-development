@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://p40y4kj038f5"]
+
+[node name="End" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 271.0
+offset_top = 151.0
+offset_right = 461.0
+offset_bottom = 240.0
+text = "womp womp"

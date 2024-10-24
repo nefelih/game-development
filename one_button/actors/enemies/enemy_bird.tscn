@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://o1t5igjbjddg"]
+
+[ext_resource type="Script" path="res://actors/enemies/enemy_bird.gd" id="1_4ay0c"]
+[ext_resource type="Script" path="res://actors/enemies/chasing.gd" id="2_xcws6"]
+[ext_resource type="Script" path="res://actors/enemies/flying.gd" id="3_6q2ba"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vhfk8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbwv2"]
+size = Vector2(10, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gibij"]
+radius = 257.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbjyc"]
+size = Vector2(12, 12)
+
+[node name="EnemyBird" type="CharacterBody2D" node_paths=PackedStringArray("initial_state")]
+position = Vector2(367, 191)
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_4ay0c")
+initial_state = NodePath("States/Chasing")
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(10, 10)
+texture = SubResource("CanvasTexture_vhfk8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jbwv2")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Chasing" type="Node" parent="States"]
+script = ExtResource("2_xcws6")
+
+[node name="Flying" type="Node" parent="States"]
+script = ExtResource("3_6q2ba")
+
+[node name="DetectionRange" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+shape = SubResource("CircleShape2D_gibij")
+
+[node name="FlyingRange" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyingRange"]
+shape = SubResource("RectangleShape2D_dbjyc")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmfbpbl52q7qd"]
+
+[ext_resource type="Texture2D" uid="uid://brr257n0iws74" path="res://scene/one_button_background.png" id="1_c2ow1"]
+[ext_resource type="Script" path="res://gameplay_loop/start.gd" id="1_kfhnc"]
+
+[node name="Start" type="Node2D"]
+position = Vector2(167, 90)
+script = ExtResource("1_kfhnc")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_c2ow1")
+
+[node name="StartText" type="RichTextLabel" parent="."]
+offset_left = 106.0
+offset_top = 8.0
+offset_right = 274.0
+offset_bottom = 39.0
+scale = Vector2(0.8, 0.8)
+text = "[press space to start]"
+metadata/_edit_use_anchors_ = true

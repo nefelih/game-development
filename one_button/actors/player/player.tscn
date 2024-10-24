@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb1ljqcxgi5ij"]
+
+[ext_resource type="Script" path="res://actors/player/player.gd" id="1_vlgd3"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kebgp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_652nt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lhb0o"]
+radius = 47.0106
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 7
+script = ExtResource("1_vlgd3")
+
+[node name="Cat" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_kebgp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_652nt")
+
+[node name="SwatRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwatRange"]
+shape = SubResource("CircleShape2D_lhb0o")
+
+[connection signal="body_entered" from="SwatRange" to="." method="_on_area_2d_body_entered"]

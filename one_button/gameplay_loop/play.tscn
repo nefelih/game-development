@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b70kp8a14g0bb"]
+
+[ext_resource type="Script" path="res://gameplay_loop/play.gd" id="1_w5bhk"]
+[ext_resource type="Texture2D" uid="uid://brr257n0iws74" path="res://scene/one_button_background.png" id="2_khlp2"]
+[ext_resource type="PackedScene" uid="uid://bb1ljqcxgi5ij" path="res://actors/player/player.tscn" id="3_jsin3"]
+[ext_resource type="PackedScene" uid="uid://dqxbgvbcd40v2" path="res://actors/enemies/bird_spawner.tscn" id="4_j8tj4"]
+
+[node name="Play" type="Node2D"]
+position = Vector2(159, 95)
+script = ExtResource("1_w5bhk")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("2_khlp2")
+
+[node name="Player" parent="." instance=ExtResource("3_jsin3")]
+position = Vector2(166, 108)
+
+[node name="BirdSpawner" parent="." instance=ExtResource("4_j8tj4")]
+position = Vector2(-45, 58)
+
+[node name="BirdSpawner2" parent="." instance=ExtResource("4_j8tj4")]
+position = Vector2(122, -52)
+
+[node name="BirdSpawner3" parent="." instance=ExtResource("4_j8tj4")]
+position = Vector2(147, 216)
+
+[node name="BirdSpawner4" parent="." instance=ExtResource("4_j8tj4")]
+position = Vector2(361, 112)
