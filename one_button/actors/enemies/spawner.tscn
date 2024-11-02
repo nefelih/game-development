@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqxbgvbcd40v2"]
 
-[ext_resource type="Script" path="res://actors/enemies/bird_spawner.gd" id="1_eytot"]
-[ext_resource type="PackedScene" uid="uid://o1t5igjbjddg" path="res://actors/enemies/enemy_bird.tscn" id="2_h8x3s"]
+[ext_resource type="Script" path="res://actors/enemies/spawner.gd" id="1_eytot"]
+[ext_resource type="PackedScene" uid="uid://o1t5igjbjddg" path="res://actors/enemies/enemy.tscn" id="2_h8x3s"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_tkae1"]
 
-[node name="BirdSpawner" type="Node2D" groups=["spawner"]]
+[node name="Spawner" type="Node2D" groups=["spawner"]]
 script = ExtResource("1_eytot")
-enemy_bird_scene = ExtResource("2_h8x3s")
+enemy_scene = ExtResource("2_h8x3s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

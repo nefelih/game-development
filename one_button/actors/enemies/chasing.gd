@@ -1,7 +1,7 @@
 extends State
 
 var detect_range: Area2D
-var target : CharacterBody2D
+var target: CharacterBody2D
 
 var fly_range : Area2D
 var flying_state: State
@@ -28,9 +28,9 @@ func process_state(delta: float):
 	#print(target)
 	if target:
 		#var pos = (body.global_position) * randf_range(5, 30)
-		var x_rand = randf_range(-20.0, 20.0)
-		var y_rand = randf_range(-20.0, 20.0)
-		body.velocity = (target.global_position - body.global_position).normalized() * 2000 * delta
+		var x_rand = randf_range(-50.0, 50.0)
+		var y_rand = randf_range(-50.0, 50.0)
+		body.velocity = (target.global_position - body.global_position).normalized() * 3500 * delta
 		body.velocity.x += x_rand
 		body.velocity.y += y_rand
 		

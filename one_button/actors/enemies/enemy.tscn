@@ -1,0 +1,121 @@
+[gd_scene load_steps=18 format=3 uid="uid://o1t5igjbjddg"]
+
+[ext_resource type="Script" path="res://actors/enemies/enemy.gd" id="1_ma182"]
+[ext_resource type="Texture2D" uid="uid://5bf67shak2k2" path="res://actors/enemies/firefly.png" id="2_6jwnb"]
+[ext_resource type="Script" path="res://actors/enemies/chasing.gd" id="2_fy4w6"]
+[ext_resource type="Script" path="res://actors/enemies/flying.gd" id="3_7d3jo"]
+[ext_resource type="Texture2D" uid="uid://5l86ipjo8l1x" path="res://actors/enemies/firefly_light.png" id="3_8dari"]
+[ext_resource type="Script" path="res://actors/enemies/knocked_out.gd" id="4_owd24"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m54q"]
+atlas = ExtResource("2_6jwnb")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80evh"]
+atlas = ExtResource("2_6jwnb")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oeyh"]
+atlas = ExtResource("2_6jwnb")
+region = Rect2(60, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_putpn"]
+atlas = ExtResource("2_6jwnb")
+region = Rect2(90, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsq3l"]
+atlas = ExtResource("2_6jwnb")
+region = Rect2(120, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k23jx"]
+atlas = ExtResource("2_6jwnb")
+region = Rect2(150, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2crfx"]
+atlas = ExtResource("2_6jwnb")
+region = Rect2(180, 0, 30, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fyvdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m54q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80evh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oeyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_putpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsq3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k23jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2crfx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbwv2"]
+size = Vector2(10, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gibij"]
+radius = 619.02
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbjyc"]
+size = Vector2(12, 12)
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("initial_state")]
+position = Vector2(367, 191)
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_ma182")
+initial_state = NodePath("States/Chasing")
+
+[node name="Firefly" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fyvdu")
+animation = &"idle"
+frame_progress = 0.928826
+
+[node name="Light" type="PointLight2D" parent="Firefly"]
+color = Color(0.960784, 0.968627, 0.286275, 1)
+energy = 0.5
+texture = ExtResource("3_8dari")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -2)
+shape = SubResource("RectangleShape2D_jbwv2")
+
+[node name="States" type="Node" parent="."]
+
+[node name="Chasing" type="Node" parent="States"]
+script = ExtResource("2_fy4w6")
+
+[node name="Flying" type="Node" parent="States"]
+script = ExtResource("3_7d3jo")
+
+[node name="KnockedOut" type="Node" parent="States"]
+script = ExtResource("4_owd24")
+
+[node name="DetectionRange" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+shape = SubResource("CircleShape2D_gibij")
+
+[node name="FlyingRange" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyingRange"]
+position = Vector2(-2, -2)
+shape = SubResource("RectangleShape2D_dbjyc")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://p40y4kj038f5"]
 
 [node name="End" type="Node2D"]
+position = Vector2(-155, -72)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 271.0

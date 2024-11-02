@@ -1,29 +1,68 @@
-[gd_scene load_steps=5 format=3 uid="uid://b70kp8a14g0bb"]
+[gd_scene load_steps=10 format=3 uid="uid://b70kp8a14g0bb"]
 
 [ext_resource type="Script" path="res://gameplay_loop/play.gd" id="1_w5bhk"]
-[ext_resource type="Texture2D" uid="uid://brr257n0iws74" path="res://scene/one_button_background.png" id="2_khlp2"]
+[ext_resource type="Texture2D" uid="uid://yd6cwjt1bcc3" path="res://scene/background_idle_cat.png" id="2_s7q5c"]
 [ext_resource type="PackedScene" uid="uid://bb1ljqcxgi5ij" path="res://actors/player/player.tscn" id="3_jsin3"]
-[ext_resource type="PackedScene" uid="uid://dqxbgvbcd40v2" path="res://actors/enemies/bird_spawner.tscn" id="4_j8tj4"]
+[ext_resource type="PackedScene" uid="uid://dqxbgvbcd40v2" path="res://actors/enemies/spawner.tscn" id="4_j8tj4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0sfl"]
+atlas = ExtResource("2_s7q5c")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0r33"]
+atlas = ExtResource("2_s7q5c")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wbm5"]
+atlas = ExtResource("2_s7q5c")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ey43"]
+atlas = ExtResource("2_s7q5c")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjjvy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0sfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0r33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wbm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ey43")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
 
 [node name="Play" type="Node2D"]
-position = Vector2(159, 95)
 script = ExtResource("1_w5bhk")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(160, 90)
-texture = ExtResource("2_khlp2")
+[node name="Background" type="AnimatedSprite2D" parent="."]
+position = Vector2(480, 270)
+sprite_frames = SubResource("SpriteFrames_hjjvy")
+animation = &"idle"
 
 [node name="Player" parent="." instance=ExtResource("3_jsin3")]
-position = Vector2(166, 108)
+position = Vector2(513, 301)
 
 [node name="BirdSpawner" parent="." instance=ExtResource("4_j8tj4")]
-position = Vector2(-45, 58)
+position = Vector2(-101, 270)
 
 [node name="BirdSpawner2" parent="." instance=ExtResource("4_j8tj4")]
-position = Vector2(122, -52)
+position = Vector2(265, -51)
 
 [node name="BirdSpawner3" parent="." instance=ExtResource("4_j8tj4")]
-position = Vector2(147, 216)
+position = Vector2(200, 683)
 
 [node name="BirdSpawner4" parent="." instance=ExtResource("4_j8tj4")]
-position = Vector2(361, 112)
+position = Vector2(1077, 449)
+
+[node name="BirdSpawner5" parent="." instance=ExtResource("4_j8tj4")]
+position = Vector2(717, -97)

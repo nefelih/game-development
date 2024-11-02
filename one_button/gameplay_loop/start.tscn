@@ -1,21 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmfbpbl52q7qd"]
+[gd_scene load_steps=8 format=3 uid="uid://dmfbpbl52q7qd"]
 
-[ext_resource type="Texture2D" uid="uid://brr257n0iws74" path="res://scene/one_button_background.png" id="1_c2ow1"]
 [ext_resource type="Script" path="res://gameplay_loop/start.gd" id="1_kfhnc"]
+[ext_resource type="Texture2D" uid="uid://cunjhj7bxgq77" path="res://scene/no_cat_background.png" id="2_ej87p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a20wb"]
+atlas = ExtResource("2_ej87p")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbd5r"]
+atlas = ExtResource("2_ej87p")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8fxm"]
+atlas = ExtResource("2_ej87p")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3crjv"]
+atlas = ExtResource("2_ej87p")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dxyt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a20wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbd5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8fxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3crjv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
 
 [node name="Start" type="Node2D"]
-position = Vector2(167, 90)
+position = Vector2(244, 242)
 script = ExtResource("1_kfhnc")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(160, 90)
-texture = ExtResource("1_c2ow1")
+[node name="Background" type="AnimatedSprite2D" parent="."]
+position = Vector2(236, 28)
+sprite_frames = SubResource("SpriteFrames_dxyt5")
+animation = &"idle"
 
 [node name="StartText" type="RichTextLabel" parent="."]
-offset_left = 106.0
-offset_top = 8.0
-offset_right = 274.0
-offset_bottom = 39.0
+offset_left = 840.0
+offset_top = 59.0
+offset_right = 1008.0
+offset_bottom = 90.0
 scale = Vector2(0.8, 0.8)
 text = "[press space to start]"
 metadata/_edit_use_anchors_ = true

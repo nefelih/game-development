@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brr257n0iws74"
-path="res://.godot/imported/one_button_background.png-cc82e0841749d7036cbbf31d2f8c0784.ctex"
+uid="uid://j7x5j28eyvm3"
+path="res://.godot/imported/cat_field.png-a185077d60261a35a2911de994c0f5b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/one_button_background.png"
-dest_files=["res://.godot/imported/one_button_background.png-cc82e0841749d7036cbbf31d2f8c0784.ctex"]
+source_file="res://actors/player/cat_field.png"
+dest_files=["res://.godot/imported/cat_field.png-a185077d60261a35a2911de994c0f5b1.ctex"]
 
 [params]
 
