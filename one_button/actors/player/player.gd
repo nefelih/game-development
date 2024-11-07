@@ -16,7 +16,10 @@ func _physics_process(delta: float) -> void:
 		target = (swat_targets[0] as Enemy)
 		var spawner = get_tree().get_nodes_in_group("spawner")
 		#print(spawner[0])
-		var rand_num = randi_range(0, 4)
-		var hitvelocity = (spawner[rand_num].position - position).normalized() * 8000 * delta
+		#var rand_num = randi_range(0, 4)
+		var nums = [1,4]
+		var number = nums[randi() % nums.size()]
+		
+		var hitvelocity = (spawner[number].position - position).normalized() * 8000 * delta
 		target.hit(1, hitvelocity)
 		

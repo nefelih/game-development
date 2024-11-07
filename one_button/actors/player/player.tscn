@@ -182,7 +182,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_652nt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wf0ml"]
-radius = 89.1403
+radius = 112.004
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 7

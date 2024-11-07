@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b70kp8a14g0bb"]
+[gd_scene load_steps=11 format=3 uid="uid://b70kp8a14g0bb"]
 
 [ext_resource type="Script" path="res://gameplay_loop/play.gd" id="1_w5bhk"]
 [ext_resource type="Texture2D" uid="uid://yd6cwjt1bcc3" path="res://scene/background_idle_cat.png" id="2_s7q5c"]
+[ext_resource type="AudioStream" uid="uid://5jnqem8msl0q" path="res://music/good-night-lofi-cozy-chill-music-160166.mp3" id="2_xri22"]
 [ext_resource type="PackedScene" uid="uid://bb1ljqcxgi5ij" path="res://actors/player/player.tscn" id="3_jsin3"]
 [ext_resource type="PackedScene" uid="uid://dqxbgvbcd40v2" path="res://actors/enemies/spawner.tscn" id="4_j8tj4"]
 
@@ -43,6 +44,7 @@ animations = [{
 
 [node name="Play" type="Node2D"]
 script = ExtResource("1_w5bhk")
+bg_music = ExtResource("2_xri22")
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
 position = Vector2(480, 270)

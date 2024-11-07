@@ -20,7 +20,6 @@ func _on_start_timer_timeout() -> void:
 func _on_mob_timer_timeout() -> void:
 	
 	if (not $MobTimer.is_stopped()):
-		
 		var enemy = enemy_scene.instantiate()
 		#print(bird)
 		var spawn_location = $Sprite2D.global_position
