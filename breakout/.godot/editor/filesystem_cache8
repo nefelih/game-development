@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1726771559
+::res://::1728496225
 audio_stream_player_2d.gd::GDScript::-1::1726006984::0::1::::<>AudioStreamPlayer2D<>::
 blue_ pixel.png::CompressedTexture2D::3424168164026077612::1725947186::1725990069::1::::<><>::
 blue_pixel_2.png::CompressedTexture2D::4039847278902364093::1725989985::1725990069::1::::<><>::
@@ -7,17 +7,17 @@ bwpixels.jpeg::CompressedTexture2D::6038797866764379564::1725396003::1725991523:
 export_presets.cfg::TextFile::-1::1726009840::0::1::::<><>::
 icon.svg::CompressedTexture2D::8561971283427916915::1724959865::1724959918::1::::<><>::
 main.tres::VisualShader::1549345425135788973::1725995212::0::1::::<><>::
-main.tscn::PackedScene::6943856159678046622::1726249287::0::1::::<><>::uid://csbiebc6aikkq::::res://bwpixels.jpeg<>res://Actors/ball.gd<>uid://12glecyu0lm7::::res://Actors/brick.tscn<>res://audio_stream_player_2d.gd<>res://Actors/paddle.gd<>uid://cv1nodv6pi48c::::res://EvilBall/animation breakout-01.png<>res://Actors/evil_ball.gd<>uid://bvif6h482mosu::::res://EvilBall/animation breakout-02.png<>uid://blfh5monqkc6v::::res://EvilBall/animation breakout-03.png<>uid://cpkpjoso7mv0o::::res://EvilBall/animation breakout-04.png<>uid://cu54db5cur84m::::res://EvilBall/animation breakout-05.png<>uid://bmi4bl68saueq::::res://EvilBall/animation breakout-06.png<>uid://clb6mkv1hjear::::res://EvilBall/animation breakout-07.png<>uid://otom0113dg02::::res://EvilBall/animation breakout-08.png<>uid://20e7j6mj4cqn::::res://EvilBall/animation breakout-09.png<>uid://5snpqe057g7s::::res://EvilBall/animation breakout-10.png<>uid://cehxc2ko73hx1::::res://EvilBall/animation breakout-11.png<>uid://bgo71i7y12a0f::::res://EvilBall/animation breakout-12.png<>uid://d2cstp1kgl8b7::::res://EvilBall/animation breakout-13.png<>uid://bwfojfkysjp85::::res://EvilBall/animation breakout-14.png<>uid://d340lbavgc6va::::res://EvilBall/animation breakout-15.png<>uid://d1qaw01eei7on::::res://Actors/health_counter.tscn<>uid://bg8qolkm2ecsh::::res://Minecraftia-Regular.ttf<>uid://0qpi3coubmoh::::res://static.wav
+main.tscn::PackedScene::6943856159678046622::1726771580::0::1::::<><>::uid://csbiebc6aikkq::::res://bwpixels.jpeg<>res://Actors/ball.gd<>uid://12glecyu0lm7::::res://Actors/brick.tscn<>res://audio_stream_player_2d.gd<>res://Actors/paddle.gd<>uid://cv1nodv6pi48c::::res://EvilBall/animation breakout-01.png<>res://Actors/evil_ball.gd<>uid://bvif6h482mosu::::res://EvilBall/animation breakout-02.png<>uid://blfh5monqkc6v::::res://EvilBall/animation breakout-03.png<>uid://cpkpjoso7mv0o::::res://EvilBall/animation breakout-04.png<>uid://cu54db5cur84m::::res://EvilBall/animation breakout-05.png<>uid://bmi4bl68saueq::::res://EvilBall/animation breakout-06.png<>uid://clb6mkv1hjear::::res://EvilBall/animation breakout-07.png<>uid://otom0113dg02::::res://EvilBall/animation breakout-08.png<>uid://20e7j6mj4cqn::::res://EvilBall/animation breakout-09.png<>uid://5snpqe057g7s::::res://EvilBall/animation breakout-10.png<>uid://cehxc2ko73hx1::::res://EvilBall/animation breakout-11.png<>uid://bgo71i7y12a0f::::res://EvilBall/animation breakout-12.png<>uid://d2cstp1kgl8b7::::res://EvilBall/animation breakout-13.png<>uid://bwfojfkysjp85::::res://EvilBall/animation breakout-14.png<>uid://d340lbavgc6va::::res://EvilBall/animation breakout-15.png<>uid://d1qaw01eei7on::::res://Actors/health_counter.tscn<>uid://bg8qolkm2ecsh::::res://Minecraftia-Regular.ttf<>uid://0qpi3coubmoh::::res://static.wav
 Minecraftia-Regular.ttf::FontFile::2876675278190561987::1725925902::1725925968::1::::<><>::
 pixel_background.png::CompressedTexture2D::5021745512504578494::1725395458::1725395596::1::::<><>::
 static.wav::AudioStreamWAV::1788677650664791323::1726000824::1726000850::1::::<><>::
-::res://Actors/::1726257867
+::res://Actors/::1726771619
 ball.gd::GDScript::-1::1726000034::0::1::::<>CharacterBody2D<>::
-brick.gdshader::Shader::-1::1726257867::0::1::::<><>::
+brick.gdshader::Shader::-1::1726771619::0::1::::<><>::
 brick.tres::VisualShader::1431859007490656518::1725991477::0::1::::<><>::
-brick.tscn::PackedScene::1881032293939190636::1726249287::0::1::::<><>::uid://bxs6xu13qjvir::::res://blue_pixel_2.png
+brick.tscn::PackedScene::1881032293939190636::1726771580::0::1::::<><>::uid://bxs6xu13qjvir::::res://blue_pixel_2.png
 evil_ball.gd::GDScript::-1::1725985848::0::1::::<>CharacterBody2D<>::
-health_counter.tscn::PackedScene::9017242670635116649::1726249287::0::1::::<><>::
+health_counter.tscn::PackedScene::9017242670635116649::1726771580::0::1::::<><>::
 paddle.gd::GDScript::-1::1725743537::0::1::::<>CharacterBody2D<>::
 ::res://EvilBall/::1725920929
 animation breakout-01.png::CompressedTexture2D::6301295418850904360::1725920840::1725920929::1::::<><>::
